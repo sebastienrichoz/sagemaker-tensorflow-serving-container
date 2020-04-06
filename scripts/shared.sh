@@ -1,6 +1,7 @@
 #!/bin/bash
 #
 # Utility functions for build/test scripts.
+export AWS_DEFAULT_REGION=eu-west-2  # TODO edit this line to change AWS DEFAULT REGION
 
 function error() {
     >&2 echo $1
