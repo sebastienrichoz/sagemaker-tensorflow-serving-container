@@ -14,12 +14,13 @@ else
     docker_command='docker'
 fi
 
+echo $repository:$full_version-$device
 
 MODEL_DIR="$(cd "test/resources/models" > /dev/null && pwd)"
 $docker_command run \
     -v "$MODEL_DIR":/opt/ml/model:ro \
     -p 8080:8080 \
-    -e "SAGEMAKER_TFS_DEFAULT_MODEL_NAME=half_plus_three" \
+    -e "SAGEMAKER_TFS_DEFAULT_MODEL_NAME=noduleclassification" \
     -e "SAGEMAKER_TFS_NGINX_LOGLEVEL=error" \
     -e "SAGEMAKER_BIND_TO_PORT=8080" \
     -e "SAGEMAKER_SAFE_PORT_RANGE=9000-9999" \
